@@ -61,8 +61,7 @@ struct DefaultRequestDecoder: RequestDecoder {
             
             log
                 .error(
-                    "API request failed with status code: \(httpResponse.statusCode), code: \(serverError.code) response:\n\(data.debugPrettyPrintedJSON))",
-                    "RATE LIMIT REMAINING - - - - - \(httpResponse.allHeaderFields["x-ratelimit-remaining"])"
+                    "API request failed with status code: \(httpResponse.statusCode), code: \(serverError.code) response:\n\(data.debugPrettyPrintedJSON))"
                 )
             throw ClientError(with: serverError)
         }
