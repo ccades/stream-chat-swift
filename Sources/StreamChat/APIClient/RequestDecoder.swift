@@ -61,10 +61,12 @@ struct DefaultRequestDecoder: RequestDecoder {
             
             log
                 .error(
-                    "RATE LIMIT REMAINING - - - - - \(httpResponse.allHeaderFields["x-ratelimit-remaining"])"                
+                    "RATE LIMIT REMAINING (ERROR) - - - - - \(httpResponse.allHeaderFields["x-ratelimit-remaining"])"                
                 )
             throw ClientError(with: serverError)
         }
+        
+        print("RATE LIMIT REMAINING (SUCCESS) - - - - - \(httpResponse.allHeaderFields["x-ratelimit-remaining"])")
         
         do {
             let decodedPayload = try JSONDecoder.default.decode(ResponseType.self, from: data)
