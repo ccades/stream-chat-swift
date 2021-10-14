@@ -271,7 +271,7 @@ extension ChannelDTO {
                 filt.key == "waiting_for_user_id" && filt.`operator` == FilterOperator.equal.rawValue
             }),
            let waitingId = waitingForFilter.value as? String {
-            optPredicate = NSPredicate(format: "waitingForUserId == %@", waitingId)
+            optPredicate = NSPredicate(format: "waitingForUserId != %@", waitingId)
         }
 
         var emptyMessagesPredicate: NSPredicate?
