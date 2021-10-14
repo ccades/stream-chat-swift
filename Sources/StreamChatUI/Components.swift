@@ -78,9 +78,9 @@ public struct Components {
     
     /// Object responsible for providing resizing operations for `UIImage`
     public var imageProcessor: ImageProcessor = NukeImageProcessor()
-
-    /// The object that loads previews for video attachments.
-    public var videoPreviewLoader: VideoPreviewLoader = DefaultVideoPreviewLoader()
+    
+    /// The object responsible for loading video attachments.
+    public var videoLoader: VideoLoading = StreamVideoLoader()
     
     /// The view that shows a gradient.
     public var gradientView: GradientView.Type = GradientView.self
@@ -164,6 +164,9 @@ public struct Components {
     
     /// The view that shows an image attachment preview inside message cell.
     public var imageAttachmentGalleryPreview: ChatMessageGalleryView.ImagePreview.Type = ChatMessageGalleryView.ImagePreview.self
+    
+    /// The view that shows an image attachment in full-screen gallery.
+    public var imageAttachmentGalleryCell: ImageAttachmentGalleryCell.Type = ImageAttachmentGalleryCell.self
     
     /// The view that shows a video attachment in full-screen gallery.
     public var videoAttachmentGalleryCell: VideoAttachmentGalleryCell.Type = VideoAttachmentGalleryCell.self
